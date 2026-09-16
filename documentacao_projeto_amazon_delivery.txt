@@ -1,0 +1,129 @@
+DOCUMENTAÇÃO DO PROJETO: AMAZON DELIVERY - OTIMIZAÇÃO DOS PRAZOS DE ENTREGA
+
+1. VISÃO GERAL DO PROJETO
+--------------------------------------------------------------------------------
+Este projeto consiste em uma análise de dados end-to-end sobre a base de dados
+Amazon Delivery, focada na otimização dos prazos de entrega e na identificação
+de gargalos operacionais.
+
+A análise abrange um total de 43.739 pedidos e avalia o impacto do tempo médio
+de entrega (Fato - Prazo de Entrega) através de 4 dimensões principais:
+  - Clima
+  - Tráfego
+  - Área (Geográfica)
+  - Veículo
+
+O objetivo central foi validar a consistência dos dados e extrair os mesmos
+resultados analíticos e agrupamentos utilizando múltiplos métodos e ferramentas:
+Google Sheets, Power BI, Python (Pandas + Matplotlib) e SQLite.
+
+
+2. FONTE DOS DADOS
+--------------------------------------------------------------------------------
+- Origem: Kaggle (Dataset: Amazon Delivery)
+- Volume Total: 43.739 pedidos analisados
+
+
+3. ANÁLISE NO GOOGLE SHEETS
+--------------------------------------------------------------------------------
+A etapa inicial de exploração foi conduzida no Google Sheets:
+- Fato Analisado: Prazo de Entrega (Delivery_Time em minutos).
+- Dimensões Cruzadas: Clima, Tráfego, Área e Veículo.
+- Objetivo: Realizar os agrupamentos primários e calcular as médias do tempo
+  de entrega para cada dimensão para validação inicial.
+
+
+4. DASHBOARD INTERATIVO EM POWER BI
+--------------------------------------------------------------------------------
+Desenvolvimento de um painel executivo para acompanhamento e visualização
+dos indicadores em tempo real.
+
+Métricas Globais do Painel:
+- Total de Pedidos: 43.739 pedidos
+- Pior Cenário de Tráfego (Jam): 148 min
+- Melhor Cenário de Tráfego (Low): 101 min
+
+Estrutura do Relatório e Resultados:
+- Análise por Tráfego: Variação de 101 min (Tráfego Baixo - Low) até 148 min (Engarrafamento - Jam).
+- Análise por Clima: Variação amena de 104 min (Ensolarado - Sunny) até 138 min (Nublado - Cloudy).
+- Análise por Veículo: Motos e bicicletas mantêm médias parecidas (~130 min).
+- Análise por Área: Variação destacada na região Semi-Urbana (239 min).
+
+
+5. PROCESSAMENTO E VISUALIZAÇÃO EM PYTHON (CÓDIGO NO REPOSITÓRIO)
+--------------------------------------------------------------------------------
+Para conferir os dados e garantir a reprodutibilidade independente da ferramenta,
+a análise foi implementada em Python utilizando Pandas e Matplotlib.
+
+Tratamento e Arredondamento com Pandas:
+Para alinhar perfeitamente os valores numéricos com o SQL e Power BI, utilizou-se
+o arredondamento direto com `.round(0)`:
+
+  # Exemplo de agrupamento por Área em Pandas
+  ordem_area = Base_Dados.groupby('Area')['Delivery_Time'].mean().round(0).sort_values(ascending=False)
+
+Resultados Validados por Dimensão (Média em minutos):
+
+a) Dimensão Área:
+   - Semi-Urban: 239 min
+   - Metropolitan: 130 min
+   - Urban: 109 min
+   - Other: 104 min
+
+b) Dimensão Tráfego:
+   - Jam (Engarrafamento): 148 min
+   - High (Alto): 129 min
+   - Medium (Médio): 127 min
+   - NaN: 121 min
+   - Low (Baixo): 101 min
+
+c) Dimensão Clima:
+   - Cloudy (Nublado): 138 min
+   - Fog (Nevoeiro): 137 min
+   - Windy (Ventania): 124 min
+   - Sandstorms (Tempestade de Areia): 123 min
+   - Stormy (Tempestade): 123 min
+   - Sunny (Ensolarado): 104 min
+
+d) Dimensão Veículo:
+   - Motorcycle (Motocicleta): 131 min
+   - Bicycle (Bicicleta): 127 min
+   - Scooter: 116 min
+   - Van: 116 min
+
+
+6. CONSULTAS E AGRUPAMENTOS EM SQLITE (CÓDIGO NO REPOSITÓRIO)
+--------------------------------------------------------------------------------
+Importação da base para o SQLite para realização dos agrupamentos, filtragens
+e conferência exata das médias calculadas.
+
+Exemplo da Consulta SQL executada (repetida para as 4 dimensões):
+
+  SELECT 
+      Area AS tipo_area,
+      COUNT(Order_ID) AS total_pedidos, 
+      ROUND(AVG(Delivery_Time), 0) AS tempo_medio_min
+  FROM 
+      amazon_delivery
+  WHERE 
+      Area IS NOT NULL AND LOWER(Area) != 'nan' 
+  GROUP BY 
+      Area
+  ORDER BY 
+      tempo_medio_min DESC;
+
+Resultado no SQLite: Os números obtidos no SQLite bateram 100% de forma idêntica
+com os dados do Google Sheets, Power BI e Python.
+
+
+7. CONCLUSÃO E INSIGHTS DE NEGÓCIO
+--------------------------------------------------------------------------------
+- Consistência Analítica: Todas as 4 ferramentas (Google Sheets, Power BI, Python
+  e SQLite) chegaram exatamente aos mesmos resultados numéricos.
+- Gargalo Crítico: Área Semi-Urbana.
+  A região Semi-Urban representa apenas 152 pedidos dos 43.739 analisados (0,3%
+  do volume total), porém apresenta um tempo médio de entrega de 239 minutos —
+  mais que o dobro da área urbana (109 min).
+- Recomendação Operacional: O tempo de entrega não é severamente impactado pelo
+  tipo de veículo ou clima. O foco de otimização logística deve ser direcionado
+  para a redistribuição da frota e logística de parceiros na região Semi-Urbana.
