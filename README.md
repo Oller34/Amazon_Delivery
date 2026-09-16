@@ -73,6 +73,18 @@ A principal **ação de negócio** consistiu em avaliar o comportamento do **Fat
 | | Bicycle | 127 |
 | | Scooter / Van | 116 |
 
+## 📸 Apresentação do Projeto (Slides)
+
+<div align="center">
+  <img src="caminho/para/slide1.png" alt="Slide 1 - Introdução" width="100%">
+  <br><br>
+  <img src="caminho/para/slide2.png" alt="Slide 2 - Análise SQL e Python" width="100%">
+  <br><br>
+  <img src="caminho/para/slide3.png" alt="Slide 3 - Dashboard Power BI" width="100%">
+</div>
+
+
+
 ---
 
 ## 🔄 Consistência entre Ferramentas
