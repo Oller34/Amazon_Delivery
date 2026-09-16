@@ -14,19 +14,19 @@ A principal **ação de negócio** consistiu em avaliar o comportamento do **Fat
 <br>
 
 <div align="center">
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-0.jpg" alt="Slide 1 - Capa" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-0.jpg" alt="Slide 1 - Capa" width="100%">
   <br><br>
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-1.jpg" alt="Slide 2 - Exploração Inicial SQL" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-1.jpg" alt="Slide 2 - Exploração Inicial SQL" width="100%">
   <br><br>
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-2.jpg" alt="Slide 3 - Processamento em Python" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-2.jpg" alt="Slide 3 - Processamento em Python" width="100%">
   <br><br>
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-3.jpg" alt="Slide 4 - Visualização Python" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-3.jpg" alt="Slide 4 - Visualização Python" width="100%">
   <br><br>
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-4.jpg" alt="Slide 5 - Visão Executiva Power BI" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-4.jpg" alt="Slide 5 - Visão Executiva Power BI" width="100%">
   <br><br>
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-5.jpg" alt="Slide 6 - Dashboard Power BI" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-5.jpg" alt="Slide 6 - Dashboard Power BI" width="100%">
   <br><br>
-  <img src="C:\Users\Oller\Documents\Portifolios\Projeto - Amazon Delivery\imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-6.jpg" alt="Slide 7 - Conclusão e Insights" width="100%">
+  <img src="imagens/Amazon-Delivery-4-ferramentas-mesmo-resultado-imagens-6.jpg" alt="Slide 7 - Conclusão e Insights" width="100%">
 </div>
 
 </details>
